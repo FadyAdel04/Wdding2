@@ -1,0 +1,903 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  background-color: #fff;
+}
+
+.invitation-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: #fdfdfd;
+  overflow: hidden;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.border-frame {
+  position: absolute;
+  top: 20px;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  border: 8px solid #f8d8e7;
+  border-radius: 8px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.flower-top-left,
+.flower-bottom-right {
+  position: absolute;
+  width: 30vw;
+  max-width: 500px;
+  z-index: 2;
+}
+
+.flower-top-left {
+  top: 0;
+  left: 0;
+}
+
+.flower-bottom-right {
+  bottom: 0;
+  right: 0;
+  transform: rotate(180deg);
+}
+
+/* Wrapper and smoke background */
+.invitation-content-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  z-index: 3;
+  padding: 40px 0;
+  box-sizing: border-box;
+}
+
+.smoke-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("img/4.webp") no-repeat center center;
+  background-size: cover;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.invitation-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #8ac340;
+  padding: 20px 5vw;
+  max-width: 1000px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.small-text {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  color: #4c4c4c;
+  margin-bottom: 10px;
+}
+
+.main-title {
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+  font-weight: bold;
+  color: #8ac340;
+  margin: 10px 0 20px;
+}
+
+.bride-groom-img {
+  width: clamp(120px, 25vw, 220px);
+  margin: 15px 0;
+  background-color: transparent;
+  object-fit: contain;
+}
+
+.names-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* Space between names and symbol */
+  flex-wrap: wrap; /* Allows wrapping on small screens */
+}
+
+.names {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: #8ac340;
+  margin: 6px 0;
+}
+
+.and-symbol {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  margin: 6px 0;
+  color: #333;
+}
+
+.details {
+  font-size: clamp(0.85rem, 1.5vw, 1.1rem);
+  line-height: 1.1;
+  color: #444;
+  margin: 2px 0;
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Optional: Mobile adjustments */
+@media (max-width: 480px) {
+  .invitation-content {
+    padding: 20px 20px;
+  }
+
+  .flower-top-left,
+  .flower-bottom-right {
+    width: 45vw;
+  }
+}
+
+.counter {
+  position: relative; /* Make sure the frame can position absolutely */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 40px 20px;
+  gap: 40px;
+  min-height: 100vh;
+  background-color: #fefefe;
+  text-align: center;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.counter-img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 20px;
+  object-fit: cover;
+}
+.counter-img,
+.counter-content {
+  position: relative;
+  z-index: 2;
+}
+
+.counter-content {
+  max-width: 600px;
+}
+
+.counter-title {
+  font-family: "Playfair Display", serif;
+  font-size: 3rem;
+  color: #8ac340;
+  margin-bottom: 10px;
+}
+
+.tickcounter {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+.counter-text {
+  font-family: "Playfair Display", serif;
+  font-size: 1.2rem;
+  color: #444;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .counter {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .counter-title {
+    font-size: 2.5rem;
+  }
+
+  .counter-text {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+
+  .counter-img {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .counter-title {
+    font-size: 2rem;
+  }
+
+  .counter-text {
+    font-size: 0.95rem;
+  }
+
+  .tickcounter {
+    width: 85% !important;
+  }
+}
+
+.tickcounter-container {
+  position: relative; /* Needed for absolute positioning of the flower */
+  width: 100%;
+  margin: 0 auto;
+}
+
+.tickcounter-flower {
+  position: absolute;
+  top: -20px; /* Adjust to position above the timer */
+  right: 20px; /* Adjust to position on the right side */
+  width: 60px; /* Adjust size as needed */
+  height: auto;
+  z-index: 3; /* Ensure it appears above the timer */
+  transform: rotate(15deg); /* Optional: Adds a slight rotation */
+  opacity: 0.9; /* Optional: Adjust transparency */
+}
+
+/* Adjust flower size on larger screens */
+@media (min-width: 768px) {
+  .tickcounter-flower {
+    width: 80px;
+    top: -30px;
+    right: -15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tickcounter-flower {
+    width: 60px;
+    top: -25px;
+    right: 5px;
+  }
+}
+.dress-code-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: #fdfdfd;
+  overflow: hidden;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.invitation-content-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.invitation-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.main-title {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  color: #8ac340;
+  margin-bottom: 25px;
+  font-family: "Playfair Display", serif;
+  line-height: 1.3;
+}
+
+.text-content {
+  max-width: 800px;
+  margin: 0 auto 30px;
+}
+
+.details {
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.arabic-text {
+  text-align: right;
+  direction: rtl;
+}
+
+.english-text {
+  text-align: left;
+  direction: ltr;
+}
+
+.color-bar {
+  max-width: 100%;
+  width: min(80%, 600px);
+  height: auto;
+  margin: 30px auto 0;
+  border-radius: 8px;
+  display: block;
+}
+
+.qr-code {
+  width: min(80%, 320px);
+  height: auto;
+  margin: 20px auto;
+  display: block;
+}
+
+.flower-decoration {
+  position: absolute;
+  width: clamp(80px, 15vw, 600px);
+  height: auto;
+  z-index: 1;
+  opacity: 0.8;
+}
+
+.flower-top-left {
+  top: 20px;
+  left: 20px;
+}
+
+.flower-bottom-right {
+  bottom: 20px;
+  right: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .invitation-content {
+    padding: 30px 15px;
+  }
+
+  .main-title {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .dress-code-section {
+    padding: 30px 15px;
+    min-height: auto;
+    height: auto;
+  }
+
+  .text-content {
+    margin-bottom: 20px;
+  }
+
+  .details {
+    font-size: 1rem;
+    margin-bottom: 12px;
+  }
+  .color-bar {
+    width: 70%;
+    padding-bottom: 20px;
+    z-index: 2;
+  }
+  .qr-code {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .flower-decoration {
+    width: 70px;
+    opacity: 0.6;
+    z-index: 5;
+  }
+}
+
+@media (max-width: 480px) {
+  .dress-code-section {
+    padding: 20px 10px;
+  }
+
+  .invitation-content {
+    padding: 20px 10px;
+  }
+
+  .main-title {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+
+  .details {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .flower-decoration {
+    width: 50px;
+  }
+}
+
+.location-section {
+  background-color: #fdf9f5;
+  padding: 60px 20px;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+}
+
+.location-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 40px;
+}
+
+.location-details {
+  flex: 1;
+  min-width: 280px;
+  max-width: 500px;
+  text-align: left;
+}
+
+.location-title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: #2f2f2f;
+  margin-bottom: 30px;
+  line-height: 1.3;
+}
+
+.event-info {
+  margin-bottom: 25px;
+}
+
+.info-heading {
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #333;
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
+  margin-bottom: 5px;
+}
+
+.info-text {
+  font-size: clamp(0.9rem, 1.1vw, 1.1rem);
+  color: #444;
+  line-height: 1.6;
+  margin: 5px 0;
+}
+
+/* Right section with map */
+.location-map-wrapper {
+  flex: 1;
+  min-width: 280px;
+  max-width: 600px;
+  position: relative;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.google-map {
+  width: 100%;
+  height: 400px;
+  min-height: 300px;
+  border-radius: 10px;
+  border: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.open-location-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 12px 24px;
+  border: 2px solid #000;
+  border-radius: 30px;
+  background-color: #fff;
+  color: #000;
+  font-size: clamp(0.9rem, 1.1vw, 1.1rem);
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  width: auto;
+}
+
+.open-location-btn:hover {
+  background-color: #dcf0f9;
+}
+
+/* Floral decorations */
+.map-flower {
+  position: absolute;
+  width: 250px;
+  height: auto;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.map-flower.top-left {
+  top: -10px;
+  left: -10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .location-container {
+    gap: 30px;
+  }
+
+  .google-map {
+    height: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .location-section {
+    padding: 40px 15px;
+  }
+
+  .location-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .location-details,
+  .location-map-wrapper {
+    width: 500px;
+    max-width: 100%;
+  }
+
+  .google-map {
+    height: 250px;
+  }
+
+  .location-title,
+  .info-heading,
+  .info-text {
+    text-align: center;
+  }
+
+  .event-info {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .location-section {
+    padding: 30px 10px;
+  }
+
+  .google-map {
+    height: 250px;
+  }
+
+  .open-location-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  .location-details,
+  .location-map-wrapper {
+    width: 300px;
+    max-width: 100%;
+  }
+
+  .map-flower {
+    width: 150px;
+  }
+
+  .map-flower.top-left {
+    top: -10px;
+    left: -10px;
+  }
+}
+
+/* Banner Section - full width image version */
+.banner-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  max-height: 100vh;
+  background: #fdfdfd;
+  overflow: hidden;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.banner-content-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 40px);
+  z-index: 3;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #001f3f;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.banner-message {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  line-height: 1.4;
+  color: #8ac340;
+  margin: 2rem 0;
+  font-weight: normal;
+  font-style: italic;
+  padding: 0 20px;
+}
+
+.full-width-image-container {
+  width: 100%;
+  margin-top: auto;
+  overflow: hidden;
+}
+
+.full-width-image {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .banner-message {
+    margin: 1rem 0; /* Reduced from 1.5rem */
+    font-size: clamp(1.3rem, 4vw, 2rem);
+  }
+
+  .full-width-image {
+    height: 45vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner-section {
+    padding: 15px;
+  }
+
+  .banner-content-wrapper {
+    height: calc(100vh - 30px);
+    padding: 10px;
+  }
+
+  .banner-message {
+    margin: 5rem 0 2rem 0;
+    font-size: clamp(1.1rem, 5vw, 1.5rem);
+    padding: 0 10px;
+  }
+
+  .full-width-image {
+    height: 50vh;
+    margin-top: 0.5rem;
+    padding: 10px 10px;
+  }
+
+  .full-width-image-container {
+    margin-top: 0;
+  }
+}
+
+/* From Uiverse.io by yaroslavas2001 */
+.btn {
+  height: 4em;
+  width: 12em;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 0px solid black;
+  cursor: pointer;
+}
+
+.wrapper {
+  height: 2em;
+  width: 8em;
+  position: relative;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text {
+  font-size: 17px;
+  z-index: 1;
+  color: #000;
+  padding: 4px 12px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.7);
+  transition: all 0.5s ease;
+}
+
+.flower {
+  display: grid;
+  grid-template-columns: 1em 1em;
+  position: absolute;
+  transition: grid-template-columns 0.8s ease;
+}
+
+.flower1 {
+  top: -12px;
+  left: -13px;
+  transform: rotate(5deg);
+}
+
+.flower2 {
+  bottom: -5px;
+  left: 8px;
+  transform: rotate(35deg);
+}
+
+.flower3 {
+  bottom: -15px;
+  transform: rotate(0deg);
+}
+
+.flower4 {
+  top: -14px;
+  transform: rotate(15deg);
+}
+
+.flower5 {
+  right: 11px;
+  top: -3px;
+  transform: rotate(25deg);
+}
+
+.flower6 {
+  right: -15px;
+  bottom: -15px;
+  transform: rotate(30deg);
+}
+
+.petal {
+  height: 1em;
+  width: 1em;
+  border-radius: 40% 70% / 7% 90%;
+  background: linear-gradient(#07a6d7, #93e0ee);
+  border: 0.5px solid #96d1ec;
+  z-index: 0;
+  transition: width 0.8s ease, height 0.8s ease;
+}
+
+.two {
+  transform: rotate(90deg);
+}
+
+.three {
+  transform: rotate(270deg);
+}
+
+.four {
+  transform: rotate(180deg);
+}
+
+.btn:hover .petal {
+  background: linear-gradient(#0761d7, #93bdee);
+  border: 0.5px solid #96b4ec;
+}
+
+.btn:hover .flower {
+  grid-template-columns: 1.5em 1.5em;
+}
+
+.btn:hover .flower .petal {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.btn:hover .text {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.btn:hover div.flower1 {
+  animation: 15s linear 0s normal none infinite running flower1;
+}
+
+@keyframes flower1 {
+  0% {
+    transform: rotate(5deg);
+  }
+
+  100% {
+    transform: rotate(365deg);
+  }
+}
+
+.btn:hover div.flower2 {
+  animation: 13s linear 1s normal none infinite running flower2;
+}
+
+@keyframes flower2 {
+  0% {
+    transform: rotate(35deg);
+  }
+
+  100% {
+    transform: rotate(-325deg);
+  }
+}
+
+.btn:hover div.flower3 {
+  animation: 16s linear 1s normal none infinite running flower3;
+}
+
+@keyframes flower3 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.btn:hover div.flower4 {
+  animation: 17s linear 1s normal none infinite running flower4;
+}
+
+@keyframes flower4 {
+  0% {
+    transform: rotate(15deg);
+  }
+
+  100% {
+    transform: rotate(375deg);
+  }
+}
+
+.btn:hover div.flower5 {
+  animation: 20s linear 1s normal none infinite running flower5;
+}
+
+@keyframes flower5 {
+  0% {
+    transform: rotate(25deg);
+  }
+
+  100% {
+    transform: rotate(-335deg);
+  }
+}
+
+.btn:hover div.flower6 {
+  animation: 15s linear 1s normal none infinite running flower6;
+}
+
+@keyframes flower6 {
+  0% {
+    transform: rotate(30deg);
+  }
+
+  100% {
+    transform: rotate(390deg);
+  }
+}
